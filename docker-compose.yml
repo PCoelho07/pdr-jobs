@@ -1,0 +1,35 @@
+
+version: '3'
+
+services:
+  web:
+    image: ambientum/php:7.3-nginx
+    container_name: rits-challenger-web
+    volumes:
+      - .:/var/www/app
+    ports:
+      - "80:8080"
+    depends_on:
+      - database
+      - redis
+    links:
+      - database
+      - redis
+
+  database:
+    image: postgres:12.1
+    container_name: rits-challenger-database
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: laravel
+      POSTGRES_USER: laravel
+      POSTGRES_PASSWORD: secret
+
+
+  redis:
+    image: redis
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - "6379:6379"
