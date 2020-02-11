@@ -1,8 +1,245 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Dosis&display=swap');
 
 // Variables
-@import 'variables';
+
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+
+
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Dosis', sans-serif;
+    letter-spacing: 2px;
+}
+
+.mt-50 {
+    margin-top: 50px;
+}
+
+input:focus {
+    outline: none;
+}
+
+header {
+    display: flex;
+    flex: 1;
+
+    height: 650px;
+    max-height: 650px;
+    background: #2E2236;
+    color: #fff;
+}
+
+.header__container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 0 280px;
+    margin-top: 29px;
+}
+
+.header__nav {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+
+    text-transform: uppercase;
+    color: #FFF !important;
+}
+
+.header__navlink a {
+    color: #FFF;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 17px;
+}
+
+.header__navlink--first {
+    margin-right: 41px;
+}
+
+.header__navlink--last {
+
+    margin-left: 63px;
+    background: #4EEF61;
+    border-radius: 50px;
+    padding: 14px 35px 12px;
+    color: #2E2236 !important;
+    font-weight: bold;
+    font-size: 12px !important;
+    line-height: 14px;
+}
+
+/* Jumbotron */
+
+.jumbotron {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    margin-top: 53px;
+}
+
+.jumbotron span {
+    color: #4EEF61;
+    font-size: 12px;
+    line-height: 110%;
+    font-weight: bold;
+}
+
+.jumbotron p {
+    font-size: 46px;
+    line-height: 110%;
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: -0.025em;
+}
+
+.jumbotron a {
+    margin-top: 46px;
+    padding: 14px 39px 12px;
+    border-radius: 50px;
+    background: #4EEF61;
+    color: #2E2236;
+
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.025em;
+    text-decoration: none;
+    text-transform: uppercase !important;
+}
+
+/* Info Box */
+
+.info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 42px;
+}
+
+.info__box--middle {
+    margin: 0 80px;
+}
+
+.info__box--title {
+    font-size: 18px;
+    color: #FFF;
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+
+.info__box ul > li,
+.info__box--middle ul > li {
+    font-size: 16px;
+    letter-spacing: -0.025em;
+    padding-bottom: 4px;
+}
+
+/* Form container */
+
+.formcontent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 95px;
+    margin-bottom: 100px;
+}
+
+.formcontent__section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.formcontent__label {
+    margin-bottom: 30px;
+    color: #2E2236;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 110%;
+    letter-spacing: -0.025em;
+}
+
+.formcontent__input {
+    background:#F6F6F7;
+    width: 560px;
+    height: 50px;
+    padding: 10px 20px 11px;
+}
+
+.formcontent__input--middle {
+    margin: 10px 0;
+}
+
+.formcontent__input input {
+    background:#F6F6F7;
+    width: 100%;
+    height: 31px;
+    border: none;
+    outline: none;
+
+    font-size: 18px;
+    color: #2E2236;
+
+    letter-spacing: -0.025em;
+    margin-top:7px;
+}
+
+.formcontent__input span {
+    letter-spacing: -0.025em;
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #6C6472;
+}
+
+.formcontent__submit {
+    background: #4EEF61;
+    border-radius: 50px;
+
+    font-size: 20px;
+    font-weight: bold;
+    color: #2E2236;
+    padding: 20px 239px 16px;
+
+    outline: none;
+    border: none;
+
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+}
+
+.formcontent__inputfile {
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.formcontent__inputfile--label {
+
+    padding: 15px 110px 14px;
+    border: 2px solid #4EEF61;
+    border-radius: 50px;
+
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: -0.025em;
+    color: #2E2236;
+    cursor: pointer;
+}
+
+button:focus {outline:0;}
