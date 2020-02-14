@@ -7,6 +7,8 @@ Requisitos mínimos de máquina:
 - npm 6.13
 - node v10.16
 
+Para acessar a página de admin basta acessar: `http://localhost/admin`
+
 Passos para executar o projeto:
 
 1) Executar um dos comandos abaixo para
@@ -54,6 +56,19 @@ após, executar o comando abaixo para o sistema aplicar as `migrations`
 ```
 docker exec -it rits-challenger-web php artisan migrate
 ```
+
+e então, executar o comando abaixo para o sistema criar um usuário padrão para ter acesso a área de admin.
+
+```
+    docker exec -it rits-challenger-web php artisan db:seed
+```
+
+As credenciais são:
+```
+Email: Teste@teste.com
+Password: secret
+```
+
 5) Para executar o `Task scheduler` são necessários os seguintes passos:
 
     - Executar o script `bash.sh`
@@ -67,3 +82,4 @@ docker exec -it rits-challenger-web php artisan migrate
     EMAIL_RECIPIENT_ADDRESS=
     EMAIL_RECIPIENT_NAME=
     ```
+
