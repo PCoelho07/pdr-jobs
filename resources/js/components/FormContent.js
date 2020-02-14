@@ -2,13 +2,13 @@
 import React, { Component } from 'react';
 
 import { Formik } from 'formik';
-import Axios from 'axios';
+import api from '../utils/api';
 // import { Container } from './styles';
 
 export default class FormContent extends Component {
 
   async handleSubmit(values) {
-    /* console.log(values) */
+
     const formData = new FormData();
 
     for (const key in values) {
@@ -17,7 +17,7 @@ export default class FormContent extends Component {
       }
     }
 
-    await Axios.post('/api/resumes', formData)
+    await api.post('/api/resumes', formData)
   }
 
   render() {
@@ -52,7 +52,7 @@ export default class FormContent extends Component {
                 <div className="formcontent__section">
                   <div className="formcontent__label">
                     Informações pessoais
-                </div>
+                  </div>
                   <div className="formcontent__input">
                     <span>Nome completo</span>
                     <input type="text" name="name" onChange={handleChange} value={values.name} />

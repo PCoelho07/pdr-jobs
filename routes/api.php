@@ -17,5 +17,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::prefix('auth')->group(function () {
+    Route::post('login', 'AuthController@login');
+    Route::get('me', 'AuthController@me')->middleware('auth:api');
+});
 
-Route::post('resumes', 'ResumeController@store');
+Route::group(['prefix' => 'resumes', 'middleware' => 'auth:api'], function () {
+    Route::get('', 'ResumeController@index');
+    Route::post('', 'ResumeController@store');
+});
+

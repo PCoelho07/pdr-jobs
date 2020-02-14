@@ -26,6 +26,8 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+        $schedule->job(new \App\Jobs\NewCandidateReportJob(10))
+                    ->cron('* * * * *');
     }
 
     /**

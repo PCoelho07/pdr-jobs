@@ -6,6 +6,18 @@ use App\Resume;
 
 class ResumeService
 {
+
+    public function all()
+    {
+        $resumes = Resume::all();
+
+        foreach ($resumes as $resume) {
+            $resume['resume_full_path'] = url("storage/resumes/{$resume['resume_path']}");
+        }
+
+        return $resumes;
+    }
+
     public function store($request)
     {
         $data = $request->all();

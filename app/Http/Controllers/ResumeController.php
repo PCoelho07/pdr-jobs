@@ -14,6 +14,21 @@ class ResumeController extends Controller
         $this->resumeService = $resumeService;
     }
 
+    public function index()
+    {
+        try {
+            $resumes = $this->resumeService->all();
+            return response()
+                ->json($resumes);
+            //code...
+        } catch (\Exception $e) {
+            return response()
+                ->json([
+                    "error" => $e->getMessage()
+                ]);
+        }
+    }
+
     public function store(StoreResume $request)
     {
         $validatedData = $request->validated();
