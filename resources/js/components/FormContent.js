@@ -7,7 +7,20 @@ import api from '../utils/api';
 
 export default class FormContent extends Component {
 
+  constructor() {
+    super()
+    this.state = {
+      isLoading: false,
+      fileName: null
+    }
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
   async handleSubmit(values) {
+    this.setState({
+      isLoading: true
+    })
 
     const formData = new FormData();
 
@@ -18,9 +31,18 @@ export default class FormContent extends Component {
     }
 
     await api.post('/api/resumes', formData)
+
+    setTimeout(() => {
+      this.setState({
+        isLoading: false
+      })
+
+    }, 2000);
+
   }
 
   render() {
+    const { isLoading } = this.state
     return (
       <Formik
         initialValues={{
@@ -109,7 +131,14 @@ export default class FormContent extends Component {
                   <div className="formcontent__label">
                     Anexe seu currículo em PDF ou DOC
                 </div>
-                  <label htmlFor="file" className="formcontent__inputfile--label">Escolha o arquivo</label>
+                  <label htmlFor="file" className="formcontent__inputfile--label">
+                    {
+                      !this.state.fileName
+                        ? 'Escolha o arquivo'
+                        : this.state.fileName
+                    }
+
+                  </label>
                   <input
                     type="file"
                     name="resume_path"
@@ -117,11 +146,22 @@ export default class FormContent extends Component {
                     className="formcontent__inputfile"
                     onChange={(event) => {
                       setFieldValue('resume_path', event.currentTarget.files[0])
+
+                      this.setState({
+                        fileName: event.currentTarget.files[0].name
+                      })
+
                     }} />
                 </div>
 
                 <div className="formcontent__section mt-50">
-                  <button type="submit" className="formcontent__submit">Enviar</button>
+                  <button type="submit" className="formcontent__submit">
+                    {
+                      isLoading
+                        ? (<i className="fas fa-sync fa-spin"></i>)
+                        : 'Enviar'
+                    }
+                  </button>
                 </div>
 
               </section>

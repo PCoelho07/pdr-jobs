@@ -22,7 +22,8 @@ export default class Admin extends Component {
 
   async fetchResumes() {
     try {
-      const response = await api.get('/api/resumes')
+      const token = localStorage.getItem('jobs@token')
+      const response = await api.get('/api/resumes', { headers: { Authorization: `Bearer ${token}` } })
 
       this.setState({
         resumes: response.data
